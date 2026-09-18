@@ -1,20 +1,5 @@
-import React from 'react'
-import logo from '../assets/logo.png'
+import Reveal from './Reveal'
 
-const Footer = () => {
-  return (
-    <footer className="bg-[#000000] min-h-[30vh] flex flex-col items-center justify-center gap-3">
-      <div className="flex flex-col items-center justify-center">
-        <img src={logo} alt="Team Rocket Logo" className="h-15 w-auto" />
-        <p className="font-mono text-white text-xl font-bold">TEAM ROCKETT</p>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <p className="font-mono text-white">Prepare for trouble!</p>
-        <p className="font-mono text-white">And make it double!</p>
-      </div>
-      <p className="font-mono text-white text-xs">© 2026 Team Rocket. All rights reserved</p>
-    </footer>
-  )
-}
+function Footer() { return <footer className="relative z-[2] border-t border-[var(--border)] bg-[var(--bg)]"><div className="mx-auto flex max-w-7xl px-5 py-10 lg:px-8"><Reveal variant="fade-up" className="w-full"><div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center"><div className="flex items-center gap-3"><img src="/logo.png" alt="Team Rocket logo" className="h-10 w-10 object-contain" /><span className="font-script text-2xl text-[var(--accent)]">Prepare for trouble! And make it double!</span></div><div className="flex gap-5 text-sm text-[var(--muted)]"><a href="https://www.instagram.com/teamrockett2026/" aria-label="Instagram" className="hover:text-[var(--accent)]">Instagram</a></div></div></Reveal></div></footer> }
 
 export default Footer
