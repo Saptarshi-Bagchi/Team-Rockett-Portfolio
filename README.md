@@ -1,4 +1,4 @@
-# 🚀 Team Rocket - Portfolio
+# Team Rockett - Portfolio
 
 > A student team building real-world solutions through technology, creativity and collaboration.
 

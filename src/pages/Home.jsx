@@ -18,7 +18,7 @@ function Home() {
         <div className="relative z-[1] w-full max-w-[900px] translate-y-3">
           <Reveal variant="fade-up"><p className="eyebrow">Introducing</p></Reveal>
           <Reveal variant="fade-up" delay={120}><h1 className="mt-5 max-w-4xl text-6xl font-extrabold leading-[.95] tracking-[-.06em] sm:text-8xl"><ReactiveText text="Team Rockett" accentWords={['Rockett']} /></h1></Reveal>
-          <Reveal variant="fade-up" delay={240}><p className="mt-7 max-w-xl font-mono text-sm leading-7 text-[var(--muted)]"><ReactiveText text="गन्ने का जूस, बड़ा गिलास, 20 रुपये" mode="paragraph" /></p></Reveal>
+          <Reveal variant="fade-up" delay={240}><p className="mt-7 max-w-xl font-mono text-sm leading-7 text-[var(--muted)]"><ReactiveText text="We are Team Rockett!" mode="paragraph" /></p></Reveal>
           <Reveal variant="scale-in" delay={360}><a href="#about" className="mt-9 inline-flex rounded-full border border-[var(--accent)] px-6 py-3 font-mono text-sm text-[var(--accent)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[var(--accent)] hover:text-white">Explore the mission <span className="ml-3">→</span></a></Reveal>
         </div>
       </HeroFade>
