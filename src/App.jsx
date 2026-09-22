@@ -7,6 +7,7 @@ import Projects from './pages/Projects'
 import Members from './pages/Members'
 import LoadingScreen from './components/LoadingScreen'
 import Gallery from './pages/Gallery'
+import projects, { getProjectSlug } from './data/projects'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -17,7 +18,7 @@ function ScrollToTop() {
 }
 
 function App() {
-  return <><LoadingScreen /><HashRouter><DottedGrid /><ScrollToTop /><Routes><Route element={<Layout />}><Route path="/" element={<Home />} /><Route path="/projects" element={<Projects />} /><Route path="/members" element={<Members />} /><Route path="/gallery" element={<Gallery />} /><Route path="*" element={<Navigate to="/" replace />} /></Route></Routes></HashRouter></>
+  return <><LoadingScreen /><HashRouter><DottedGrid /><ScrollToTop /><Routes><Route element={<Layout />}><Route path="/" element={<Home />} /><Route path="/projects" element={<Projects />} /><Route path="/members" element={<Members />} />{projects.map((project) => <Route key={getProjectSlug(project)} path={`/gallery/${getProjectSlug(project)}`} element={<Gallery project={project} />} />)}<Route path="*" element={<Navigate to="/" replace />} /></Route></Routes></HashRouter></>
 }
 
 export default App
