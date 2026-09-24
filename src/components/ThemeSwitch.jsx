@@ -6,6 +6,7 @@ const REVEAL_DURATION = 650
 const REST_DANGLE = 60
 const PULL_THRESHOLD = 36
 const MAX_PULL_DISTANCE = 200
+const CORD_START = 2
 
 function ThemeSwitch({ anchorTargetRef, fallbackRef, navbarRef }) {
   const knobRef = useRef(null)
@@ -23,7 +24,7 @@ function ThemeSwitch({ anchorTargetRef, fallbackRef, navbarRef }) {
   const [springing, setSpringing] = useState(false)
   const [tugging, setTugging] = useState(false)
   const isDark = theme === 'dark'
-  const rest = { x: 32, y: anchor.y + REST_DANGLE }
+  const rest = { x: 32, y: CORD_START + REST_DANGLE }
   const knobPosition = position || rest
 
   useEffect(() => {
@@ -137,7 +138,7 @@ function ThemeSwitch({ anchorTargetRef, fallbackRef, navbarRef }) {
 
   const desktopPosition = { right: `${window.innerWidth - anchor.x - 32}px` }
   const mobilePosition = { left: anchor.x - 32 }
-  return <><button type="button" role="switch" aria-checked={isDark} aria-label="Toggle dark mode" className={`navbar-theme-toggle ${dragging ? 'is-dragging' : ''}`} style={mobileLayout ? mobilePosition : desktopPosition} onClick={onClick}><svg className="navbar-theme-cord" aria-hidden="true" viewBox="0 0 64 140" preserveAspectRatio="none"><line x1="32" y1={anchor.y} x2={knobPosition.x} y2={knobPosition.y} /></svg><span ref={knobRef} className={`navbar-theme-knob ${springing ? 'is-springing' : ''} ${tugging ? 'is-tugging' : ''}`} style={{ left: knobPosition.x, top: knobPosition.y }} onPointerDown={onPointerDown} aria-hidden="true">{isDark ? <MoonIcon /> : <SunIcon />}</span></button><button type="button" role="switch" aria-checked={isDark} aria-label="Toggle dark mode" className="navbar-theme-mobile" onClick={() => toggle(mobileKnobRef.current)}><SunIcon /><motion.span ref={mobileKnobRef} className="navbar-theme-mobile-thumb" animate={{ x: isDark ? 28 : 0 }} transition={{ type: 'spring', stiffness: 500, damping: 30 }}><span>{isDark ? <MoonIcon /> : <SunIcon />}</span></motion.span><MoonIcon /></button></>
+  return <><button type="button" role="switch" aria-checked={isDark} aria-label="Toggle dark mode" className={`navbar-theme-toggle ${dragging ? 'is-dragging' : ''}`} style={mobileLayout ? mobilePosition : desktopPosition} onClick={onClick}><svg className="navbar-theme-cord" aria-hidden="true" viewBox="0 0 64 140" preserveAspectRatio="none"><line x1="32" y1={CORD_START} x2={knobPosition.x} y2={knobPosition.y} /></svg><span ref={knobRef} className={`navbar-theme-knob ${springing ? 'is-springing' : ''} ${tugging ? 'is-tugging' : ''}`} style={{ left: knobPosition.x, top: knobPosition.y }} onPointerDown={onPointerDown} aria-hidden="true">{isDark ? <MoonIcon /> : <SunIcon />}</span></button><button type="button" role="switch" aria-checked={isDark} aria-label="Toggle dark mode" className="navbar-theme-mobile" onClick={() => toggle(mobileKnobRef.current)}><SunIcon /><motion.span ref={mobileKnobRef} className="navbar-theme-mobile-thumb" animate={{ x: isDark ? 28 : 0 }} transition={{ type: 'spring', stiffness: 500, damping: 30 }}><span>{isDark ? <MoonIcon /> : <SunIcon />}</span></motion.span><MoonIcon /></button></>
 }
 
 function SunIcon() { return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" /></svg> }
