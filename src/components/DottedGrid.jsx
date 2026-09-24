@@ -18,7 +18,7 @@ function DottedGrid() {
     let reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const pointer = { x: -1000, y: -1000, targetX: -1000, targetY: -1000, glow: 0, targetGlow: 0 }
     let dotColor = [115, 115, 115]
-    let accentColor = [255, 106, 0]
+    let accentColor = [179, 62, 85]
     let targetDotColor = dotColor
     let targetAccentColor = accentColor
 
