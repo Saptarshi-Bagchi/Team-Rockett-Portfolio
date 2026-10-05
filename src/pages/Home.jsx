@@ -1,14 +1,20 @@
 import HeroFade from '../components/HeroFade'
+import SectionDots from '../components/SectionDots'
+import useSectionSnap from '../hooks/useSectionSnap'
 import ReactiveText from '../components/ReactiveText'
 import Reveal from '../components/Reveal'
 import SectionHeading from '../components/SectionHeading'
 import TeamCarousel from '../components/TeamCarousel'
+import { DEBUG_SECTION_BORDERS } from '../config/debug'
 
 const milestones = ['The spark', 'First launch', 'Learning loop', 'Next horizon']
 
 function Home() {
-  return <>
-    <section data-hero className="relative box-border flex min-h-[100vh] min-h-[100svh] flex-col items-start justify-center pt-[var(--nav-h)] pb-[var(--nav-h)] pl-[var(--hero-pad-left)] pr-5 text-left lg:pr-8">
+  const { activeIndex, goToSection, setSectionRef } = useSectionSnap(3)
+  const debugClass = DEBUG_SECTION_BORDERS ? 'debug-section' : ''
+
+  return <div className="home-snap-container"><SectionDots activeIndex={activeIndex} onSelect={goToSection} count={3} />
+    <section ref={setSectionRef(0)} data-hero className={`${debugClass} relative box-border flex min-h-[100dvh] flex-col items-start justify-center pt-[var(--nav-h)] pb-[var(--nav-h)] pl-[var(--hero-pad-left)] pr-5 text-left lg:pr-8`}>
       <HeroFade>
         <div className="relative z-[1] w-full max-w-[900px] translate-y-3">
           <Reveal variant="fade-up"><p className="eyebrow">Introducing</p></Reveal>
@@ -18,18 +24,18 @@ function Home() {
         </div>
       </HeroFade>
     </section>
-    <section id="about" className="about-section mx-auto box-border flex min-h-[100vh] min-h-[100svh] flex-col justify-center">
+    <section ref={setSectionRef(1)} id="about" className={`${debugClass} about-section mx-auto box-border flex min-h-[100dvh] flex-col justify-center`}>
       <Reveal variant="fade-left"><SectionHeading eyebrow="01 / About us" title="Different skills. One orbit." /></Reveal>
       <TeamCarousel />
       <div className="about-value-grid grid sm:grid-cols-2 lg:grid-cols-4">{[['✦', 'Build'], ['⌁', 'Innovate'], ['↗', 'Grow'], ['∞', 'Make an Impact']].map(([icon, title], index) => <Reveal key={title} variant="scale-in" delay={index * 100}><div className="about-value-card rounded-2xl border border-[var(--border)] bg-[var(--surface)] transition-transform duration-200 hover:-translate-y-1 hover:border-[var(--accent)]"><span className="text-3xl text-[var(--accent)]">{icon}</span><h3 className="font-semibold">{title}</h3><p className="text-sm leading-6 text-[var(--muted)]">TODO: Add a sentence about this value.</p></div></Reveal>)}</div>
     </section>
-    <section className="bg-[var(--surface)]">
+    <section ref={setSectionRef(2)} className={`${debugClass} min-h-[100dvh] bg-[var(--surface)]`}>
       <div className="mx-auto max-w-7xl px-5 py-24 lg:px-8">
         <Reveal variant="fade-left"><SectionHeading eyebrow="02 / Our journey" title="Still writing the story." /></Reveal>
         <div className="mt-14 grid gap-8 md:grid-cols-4">{milestones.map((title, index) => <Reveal key={title} variant={index % 2 === 0 ? 'fade-up' : 'fade-right'} delay={index * 100}><div className="border-l-2 border-[var(--accent)] pl-5"><p className="font-mono text-xs text-[var(--accent)]">0{index + 1}</p><h3 className="mt-4 font-semibold">{title}</h3><p className="mt-3 text-sm leading-6 text-[var(--muted)]">TODO: Add a timeline milestone and its date.</p></div></Reveal>)}</div>
       </div>
     </section>
-  </>
+  </div>
 }
 
 export default Home

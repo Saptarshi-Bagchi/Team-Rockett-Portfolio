@@ -5,7 +5,7 @@ const members = [
   { name: 'Saptarshi Bagchi', role: 'Software Developer', bio: 'I am Batman...', skills: ['ReactJS', 'SpringBoot', 'Python'], image: '/members/member-3.jpg', links: { github: 'https://github.com/Saptarshi-Bagchi', linkedin: 'https://www.linkedin.com/in/saptarshi-bagchi-104a26343/' } },
   { name: 'Shobhini Upadhyay', role: 'Public Relations Manager', bio: 'SoSo', skills: ['Management', 'Public Speaking', 'Public Relations'], image: '/members/member-4.jpg', links: { github: '#', linkedin: 'https://www.linkedin.com/in/shobhini-upadhyay-75635633b/' } },
   { name: 'Sayan Ghosh', role: 'UI/UX Developer', bio: 'Jeevan ka ek lakshya, din bhar sona', skills: ['MERN', 'Figma', 'Java'], image: '/members/member-5.jpg', links: { github: '#', linkedin: 'https://www.linkedin.com/in/sayan-ghosh-71b268316/' } },
-  { name: 'Tejaswini Baral', role: 'Lead Researched', bio: 'Zindgi ke sath bhi zindgi ke baad bhi', skills: ['Reels', 'Reels', 'Reels'], image: '/members/member-6.jpg', links: { github: 'https://github.com/tejaswini-baral', linkedin: 'https://www.linkedin.com/in/tejaswini-baral-41402339b/' } },
+  { name: 'Tejaswini Baral', role: 'Lead Researcher', bio: '', skills: ['Python', 'Machine Learning', 'Computer Vision(YOLO)'], image: '/members/member-6.jpg', links: { github: 'https://github.com/tejaswini-baral', linkedin: 'https://www.linkedin.com/in/tejaswini-baral-41402339b/' } },
 ]
 
 export default members
