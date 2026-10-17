@@ -18,6 +18,7 @@ function useSectionSnap(sectionCount) {
   const getSectionTarget = useCallback((index) => {
     const section = sectionRefs.current[index]
     if (!section) return 0
+    if (section.tagName === 'FOOTER') return Math.max(0, document.documentElement.scrollHeight - window.innerHeight)
     const scrollPaddingTop = Number.parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0
     return Math.max(0, section.getBoundingClientRect().top + window.scrollY - scrollPaddingTop)
   }, [])
